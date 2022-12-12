@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Inventario{% endblock %}
+
+{% block content %}
+
+{% if equipo_list %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Estado bodega</th>
+            <th>Ubicación</th>
+            <th>Fecha mantención</th>
+            <th>Condición</th>
+            <th>Observaciones</th>
+        </tr>
+        {% for equipo in equipo_list %}
+            <tr>
+                <td>{{ equipo.ide }}</td>
+                <td>{{ equipo.nombre }}</td>
+                <td>{{ equipo.descripcion }}</td>
+                <td>{{ equipo.estado }}</td>
+                <td>{{ equipo.ubicacion }}</td>
+                <td>{{ equipo.fecha_mantencion }}</td>
+                <td>{{ equipo.condicion }}</td>
+                <td>{{ equipo.observaciones }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No hay inventario disponible.</p>
+{% endif %}
+{% endblock %}

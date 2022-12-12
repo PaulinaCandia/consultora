@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center">
+    <p class="fs-1">Inventariado</p>
+</div>
+<div class="d-flex justify-content-center">
+    <p class="fs-2">Matronas</p>
+</div>
+
+<div class="d-flex justify-content-center">
+    {% if user.is_authenticated %}
+    <button class="btn btn-default"><a href="{% url 'inventario' %}">Inventario</a></button>
+    <button class="btn btn-default"><a href="{% url 'matronas' %}">Matronas</a></button>
+    {% else %}
+    <button class="btn btn-default"><a href="{% url 'login' %}">Log In</a></button>
+    {% endif %}
+</div>
+
+{% endblock %}
